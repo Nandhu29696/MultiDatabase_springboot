@@ -11,7 +11,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.book.repository.BookRepository;
 import com.example.demo.model.book.Book;
 import com.example.demo.model.user.User;
@@ -19,7 +18,6 @@ import com.example.demo.user.repository.UserRepository;
 
 @SpringBootApplication
 @RestController
-//@ComponentScan(basePackages = "{com.example.demo.*}")
 public class DatasourceMultiApplication {
 
 	@Autowired
@@ -31,7 +29,6 @@ public class DatasourceMultiApplication {
 	@PostConstruct
 	public void addData2DB() {
 		userRepo.saveAll(Stream.of(new User(744, "Nandhu"), new User(744, "Vijay")).collect(Collectors.toList()));
-
 		bookRepo.saveAll(Stream.of(new Book(111, "Java"), new Book(112, "Spring boot")).collect(Collectors.toList()));
 	}
 
@@ -47,7 +44,7 @@ public class DatasourceMultiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DatasourceMultiApplication.class, args);
-	System.out.println("created");
+		System.out.println("created");
 	}
 
 }
